@@ -81,7 +81,7 @@ button{
 .index_menu{
     color: var(--invert_background);
     padding:20px;
-    border: 1px solid var(--menu_border);
+    border: 1px solid var(--invert_background);
     background: var(--background);
     position: fixed;
     top:60px;
