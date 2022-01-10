@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style.css">
+</head>
+<div class="d_flex"><input type="checkbox" id="checkbox1"><label style=" box-shadow: 0 0 0px #AFAFB5;" for="checkbox1">12 hrs format</label></div>
+<div class="d_flex time">
+    <div id="hh">00</div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div id="mm">00</div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div id="ss">00</div>
+    <div id="unit">AM</div>
+</div>
+<hr>
+<div class="time_upgrade time d_flex">
+    <div class="cover"></div>
+    <div id="uhh"></div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div id="umm"></div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div id="uss"></div>
+    <div id="uunit">
+        <div id="uunit_switch">
+            <span>AM</span>
+            <span>PM</span>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="time_upgrade u1 time d_flex">
+    <div class="cover cover_u1"></div>
+    <div class="d_flex" id="u1_hh">
+        <div class="single_strip" id="u1_hh1"></div>
+        <div class="single_strip" id="u1_hh2"></div>
+    </div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div class="d_flex" id="u1_mm">
+        <div class="single_strip" id="u1_mm1"></div>
+        <div class="single_strip" id="u1_mm2"></div>
+    </div>
+    <div id="seperator">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+    <div class="d_flex" id="u1_ss">
+        <div class="single_strip" id="u1_ss1"></div>
+        <div class="single_strip" id="u1_ss2"></div>
+    </div>
+    <div class="d_flex" id="u1_unit">
+        <div class="single_strip" style="margin-left: 5px; text-align: center;" id="u1_am_pm">
+            <div>A</div>
+            <div>P</div>
+        </div>
+        <div style="height: 32px;">M</div>
+    </div>
+</div>
+<body>
+    <script>
+        function make_numbers(id,num){
+            for(var i=0; i<num; i++){
+                document.getElementById(id).innerHTML += `<div>${(i<10)? '0' : ''}${i}</div>`;
+            }
+        }
+        function make_numbers_limit(id,start,end){
+            for(var i=start; i<=end; i++){
+                document.getElementById(id).innerHTML += `<div>${i}</div>`;
+            }
+        }
+        make_numbers('uhh',24);
+        make_numbers('umm',60);
+        make_numbers('uss',60);
+        make_numbers_limit('u1_hh1',0,2);
+        make_numbers_limit('u1_hh2',0,9);
+        make_numbers_limit('u1_mm1',0,5);
+        make_numbers_limit('u1_mm2',0,9);
+        make_numbers_limit('u1_ss1',0,5);
+        make_numbers_limit('u1_ss2',0,9);
+
+        function time(){
+            let flag = document.getElementById('checkbox1').checked
+            let date = new Date();
+            let hh = date.getHours();
+            let hh_convert = (hh>12 && flag==true) ? hh-12 : hh
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            
+            document.getElementById('hh').innerHTML = ((hh_convert<10) && '0')+hh_convert;
+            document.getElementById('mm').innerHTML = ((mm<10) && '0')+mm;
+            document.getElementById('ss').innerHTML = ((ss<10) && '0')+ss;
+            document.getElementById('unit').innerHTML = (hh>12)? 'PM' : 'AM';
+            
+            // upgraded
+            
+            document.getElementById('uhh').style.marginTop = `-${32*2*hh_convert}px`
+            document.getElementById('umm').style.marginTop = `-${32*2*mm}px`
+            document.getElementById('uss').style.marginTop = `-${32*2*ss}px`
+            document.getElementById('uunit_switch').style.top = `${(hh>12)? -35 : 0}px`
+
+            // upgrade 1
+
+            document.getElementById('u1_ss1').style.marginTop = `-${32*2*(parseInt(ss/10))}px`
+            document.getElementById('u1_ss2').style.marginTop = `-${32*2*(ss%10)}px`
+            document.getElementById('u1_mm1').style.marginTop = `-${32*2*(parseInt(mm/10))}px`
+            document.getElementById('u1_mm2').style.marginTop = `-${32*2*(mm%10)}px`
+            document.getElementById('u1_hh1').style.marginTop = `-${32*2*(parseInt(hh_convert/10))}px`
+            document.getElementById('u1_hh2').style.marginTop = `-${32*2*(hh_convert%10)}px`
+            document.getElementById('u1_am_pm').style.marginTop = `${(hh>12)? -64 : 0}px`
+            console.log(parseInt(ss/10),ss);
+            setTimeout(()=>{time()},1000)
+        }
+        time();
+    </script>
+</body>
+</html>

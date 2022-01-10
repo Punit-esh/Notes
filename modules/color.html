@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .a{
+            color:rgb(255, 118, 5)
+        }
+        .main_bar{
+            width: 100%;
+            border: 1px solid black;
+            /* transform-origin: center; */
+            /* transform: rotate(90deg); */
+            display: flex;
+            justify-content: space-between;
+        }
+        .main_bar>div{
+            display: inline-block;
+            height: 100px;
+            width: 1px;
+            /* transform: scaleY(.5); */
+            /* border: 1px solid blue; */
+        }
+    </style>
+</head>
+<body>
+    <h3 id="color_id">0,0,0</h3>
+    <div class="main_bar" id="main_bar">
+    
+    </div>
+    <script>
+    function iterate(r,g,b,iterate,type){
+        for(var i=((type=='+')?0:255); eval((type=='+')?i<=255:i>=0); eval((type=='+')?i++:i--)){
+            document.getElementById('main_bar').innerHTML += `<div onmouseover="color_div([${(iterate=='r')?i:r},${(iterate=='g')?i:g},${(iterate=='b')?i:b}])" style='background:rgb(${(iterate=='r')?i:r},${(iterate=='g')?i:g},${(iterate=='b')?i:b})'></div>`
+        }
+    }
+    iterate(255,0,0,'g','+')
+    iterate(255,255,0,'r','-')
+    iterate(0,255,0,'b','+')
+    iterate(0,255,255,'g','-')
+    iterate(0,0,255,'r','+')
+    iterate(255,0,255,'b','-')
+    
+    function color_div(arr) {
+        document.getElementById('color_id').innerHTML = arr
+    }
+
+    </script>
+</body>
+
+</html>

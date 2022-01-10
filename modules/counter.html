@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ephesis&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .green{
+            color:#1bb41b
+        }
+        .red{
+            color:#ff0000
+        }
+        .red_green{
+            background: linear-gradient(90deg,#ff0000 50%,#1bb41b 50%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+    </style>
+</head>
+<body>
+    <div style="width:fit-content;margin:auto;text-align:center">
+        <h2>Counter</h2>
+        <h1 id="counter" class="red_green" style="margin:auto; width:fit-content;">0</h1>
+        <div>
+            <button onclick="counter(this)">Decrease</button>
+            <button onclick="counter(this)">Reset</button>
+            <button onclick="counter(this)">Increase</button>
+        </div>
+    </div>
+    <script>
+        var count = 0;
+        var str;
+        function counter(current){
+            (current.innerHTML=='Decrease') ? count-- : (current.innerHTML=='Increase') ? count++ : count=0;
+            document.getElementById('counter').innerHTML = count;
+            document.getElementById('counter').className = (count>0) ? 'green' : (count<0) ? 'red' : 'red_green';
+
+        }
+    </script>
+</body>
+
+</html>
