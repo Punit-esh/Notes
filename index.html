@@ -7,71 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bootstrap Custom</title>
     <link rel="stylesheet" href="style.css">
-
+    <style id="style">
+        :root {
+            --background: #e2e2e2;
+            --invert_background:#161718;
+        }
+    </style>
 </head>
 
 <body id="index">
-    <div>
-        <div class="index">
-            <div class="index_main">
-                <div class="menu" id="menu"onclick="menu_toggel(this)">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
-                <!-- <div class="mode_switcher">
-                    q
-                </div> -->
-                <div class="index_menu" id="index_menu">
-                    <button onclick="change_iframe('accordian.html')">Accordion</button>
-                    <button onclick="change_iframe('clock.html')">Clock</button>
-                    <button onclick="change_iframe('timer.html')">Timer</button>
-                    <button onclick="change_iframe('object filter.html')">Object filter</button>
-                    <button onclick="change_iframe('counter.html')">Counter</button>
-                </div>
-            </div>
-        </div>
-        <div class="iframe_div">
-            <iframe src="./modules/box.html" frameborder="0" id="link_op"></iframe>
+    <div class="header">
+        <div class="navbar">
+            <button onclick="switch_themes(this)" id="theme_switcher">Dark</button>
         </div>
     </div>
-    <input type="text" name="" id="num1">
-    <button onclick="formulate(Number(document.getElementById('num1').value))">btn</button>
-    
-    <div class="ot"></div>
-    <script text="text/javascript">
-        function menu_toggel(){
-            document.getElementById('menu').classList.toggle('menu_x')
-            document.getElementById('index_menu').classList.toggle('index_menu_x')
-        }
-        function change_iframe(link){
-            document.getElementById('link_op').src = `./modules/${link}` ;
-            menu_toggel()
-        }
-
-
-
-
-        // function formulate(num){
-        //     var x = num;
-        //     while (x>1) {
-        //         (x%2==0) ? x/=2 : x=3*x+1;
-        //     }
-        //     return x
-        // }
-        // var arr=[]
-        // for(var i=1; i<50; i++){
-        //     value=0
-        //     if(arr.indexOf(i)==-1){
-        //         value=formulate(i)
-        //     }
-        //     // document.write(value+'<br>')
-        //     if(arr.indexOf(i)==-1 && value==1)arr.push(i);
-        //     console.log(arr);
-        // }
-
-
-    </script>
+    <div class="main"></div>
+    <!-- <div class="footer"></div> -->
+    <div class="iframe_div">
+        <iframe src="" frameborder="0" id="link_op"></iframe>
+    </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
