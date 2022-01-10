@@ -13,31 +13,42 @@
     <style id="style">
         :root {
             --background: #e2e2e2;
-            --invert_background:#161718;
+            --invert_background: #161718;
+            --menu_border: #40e0d0;
         }
     </style>
+    <script src="./modules/index_menu.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body id="body">
 
-    <div class="header d-flex justify-content-between">
+    <div class="header d-flex justify-content-between align-items-center">
         <div class="menu" onclick="menu_toggel(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-        <div class="navbar">
+        <div class="main_navbar">
+            <div data-tab="HTML" class="main_tabs">HTML</div>
+            <div data-tab="CSS" class="main_tabs">CSS</div>
+            <div data-tab="JS" class="main_tabs">JS</div>
+        </div>
+        <div>
             <button onclick="switch_themes(this)" id="theme_switcher">Dark</button>
         </div>
     </div>
 
-    <div class="main"></div>
+    <div class="main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, aliquam sed iste repellat architecto neque voluptate eius, vel obcaecati alias placeat voluptatibus unde. Voluptatibus magni architecto cupiditate harum quae laborum. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque quos cupiditate labore sequi? Tempore rem rerum doloremque expedita, id, dolore, sed itaque dolor officia minima placeat ad esse minus porro!</div>
 
     <div class="iframe_div">
         <iframe src="" frameborder="0" id="link_op"></iframe>
     </div>
+
+    <div class="index_menu" id="index_menu">
+        
+    </div>
     
-    <script src="script.js"></script>
 </body>
 
 </html>
