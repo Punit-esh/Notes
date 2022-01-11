@@ -1,62 +1,91 @@
-body{
-    background: var(--background) !important    ;
+body {
+    background: var(--background) !important;
 }
-button{
+button {
     background: transparent;
-    padding:10px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     font-size: 20px;
     position: relative;
     box-shadow: 0 0 10px var(--invert_background);
 }
-.header{
-    padding:15px 20px;
+::-webkit-scrollbar {
+    width: 5px;
+    left:0
 }
-.menu{
-    height:fit-content;
-    width:45px;
+/* ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+} */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.index_menu::-webkit-scrollbar-thumb,
+.index_menu::-webkit-scrollbar-thumb:hover {
     background: transparent;
-    border:1px solid var(--menu_border);
+}
+
+.header {
+    padding: 15px 20px;
+}
+
+.menu {
+    height: fit-content;
+    width: 45px;
+    background: transparent;
+    border: 1px solid var(--menu_border);
     overflow: hidden;
     padding-inline: 5px;
     border-radius: 5px;
 }
-.menu>div{
-    height:5px;
+
+.menu>div {
+    height: 5px;
     width: 100%;
-    background:var(--invert_background);
+    background: var(--invert_background);
     border-radius: 20px;
     margin-block: 5px;
     box-shadow: 0 0 2px;
     transition: all 300ms linear;
     transform-origin: center;
 }
-.menu_x>.bar1{
+
+.menu_x>.bar1 {
     transform: translateY(10px) rotate(45deg);
 }
-.menu_x>.bar2{
+
+.menu_x>.bar2 {
     width: 0;
 }
-.menu_x>.bar3{
+
+.menu_x>.bar3 {
     transform: translateY(-10px) rotate(-45deg);
 }
-.main_navbar{
+
+.main_navbar {
     /* border: 1px solid red; */
 }
-.main_navbar>.main_tabs{
+
+.main_navbar>.main_tabs,
+.index_menu>.main_tabs {
     cursor: pointer;
     display: inline-block;
-    color:var(--invert_background);
+    color: var(--invert_background);
     margin-inline: 10px;
     font-size: 20px;
     font-weight: bold;
     position: relative;
 }
-.main_navbar>.main_tabs.active{
-    color:#EF5F36;
+
+.main_navbar>.main_tabs.active {
+    color: #EF5F36;
 }
-.main_navbar>.main_tabs:after{
-    position:absolute;
+
+.main_navbar>.main_tabs:after {
+    position: absolute;
     content: "";
     height: 1px;
     width: 100%;
@@ -69,58 +98,74 @@ button{
     transition: transform 400ms linear;
     transform-origin: right;
 }
+
 .main_navbar>.main_tabs:hover:after,
-.main_navbar>.main_tabs.active:after{
+.main_navbar>.main_tabs.active:after {
     transform: scale(1);
     transform-origin: left;
 }
-#theme_switcher{
-    color:var(--invert_background);
+
+#theme_switcher {
+    color: var(--invert_background);
     border: 2px solid var(--invert_background);
 }
-.index_menu{
+
+.index_menu {
+    /* height: 700px; */
+    height:calc();
+    overflow-y: scroll;
     color: var(--invert_background);
-    padding:20px;
+    padding: 20px;
     border: 1px solid var(--invert_background);
     background: var(--background);
     position: fixed;
-    top:60px;
-    width:250px;
+    top: 60px;
+    width: 250px;
     border-radius: 10px;
     margin: 20px;
     transform: translateX(-270px);
     transition: all 500ms cubic-bezier(0.21, 0.23, 0.5, 1.46);
 }
-.index_menu>.index_menu_tabs{
+
+.index_menu>.index_menu_tabs {
     cursor: pointer;
     position: relative;
     margin-bottom: 10px;
     transition: all 300ms linear;
 }
-.index_menu>.index_menu_tabs:hover{
+
+.index_menu>.index_menu_tabs:hover {
     transform: translateX(15px);
 }
-.index_menu>.index_menu_tabs:hover:before{
+
+.index_menu>.index_menu_tabs:hover:before {
     position: absolute;
     content: "";
-    top:0;
+    top: 0;
     bottom: 0;
     right: 100%;
-    left:-15px;
+    left: -15px;
     margin: auto;
-    height:7px;
+    height: 7px;
     aspect-ratio: 1;
     border-right: 2px solid #EF5F36;
     border-top: 2px solid #EF5F36;
     /* background: red; */
     transform: rotate(45deg);
 }
-.index_menu>.index_menu_tabs:last-child{
+
+.index_menu>.index_menu_tabs:last-child {
     margin-bottom: 0;
 }
-.index_menu_x{
+
+.index_menu_x {
     transform: translateX(0);
 }
-.main{
-    color:var(--invert_background)
+
+.index_menu>.main_tabs{
+    display: block;
+}
+
+.main {
+    color: var(--invert_background)
 }

@@ -12,8 +12,9 @@
     <!-- CSS only -->
     <style id="style">
         :root {
-            --background: #e2e2e2;
+            --background: #ffffff;
             --invert_background: #161718;
+
             --menu_border: #40e0d0;
         }
     </style>
@@ -22,14 +23,14 @@
 </head>
 
 <body id="body">
-
+    <div id="main_body">
     <div class="header d-flex justify-content-between align-items-center">
         <div class="menu" onclick="menu_toggel(this)">
             <div class="bar1"></div>
             <div class="bar2"></div>
             <div class="bar3"></div>
         </div>
-        <div class="main_navbar">
+        <div class="main_navbar" id="main_navbar">
             <div data-tab="HTML" class="main_tabs">HTML</div>
             <div data-tab="CSS" class="main_tabs">CSS</div>
             <div data-tab="JS" class="main_tabs">JS</div>
@@ -44,11 +45,8 @@
     <div class="iframe_div">
         <iframe src="" frameborder="0" id="link_op"></iframe>
     </div>
-
-    <div class="index_menu" id="index_menu">
-        
     </div>
-    
+    <div class="index_menu" id="index_menu"></div>
 </body>
 
 </html>
