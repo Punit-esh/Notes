@@ -29,6 +29,7 @@ tab.forEach(el =>el.addEventListener('click',()=>{
 function make_index(id) {
     let str = eval(`${id}()`).map(el=>`<div class="index_menu_tabs">${el}</div>`).join("");
     // console.log(str);
+    
     write_to('index_menu',str)
 }
 function switch_themes(current) {
@@ -36,7 +37,10 @@ function switch_themes(current) {
     write_to('style',(current.innerHTML=="Light")?dark_theme:light_theme)
 }
 function menu_toggel(current) {
-    current.classList.toggle('menu_x')
+    document.getElementById('menu').classList.toggle('menu_x')
+    // current.classList.toggle('menu_x')
+    document.getElementById('index_menu_halo').classList.toggle('index_menu_halo_x')
+    // document.getElementById('main_body').style.background = (current.classList[current.classList.length-1]=='menu_x')?'#000':''
     document.getElementsByClassName('index_menu')[0].classList.toggle('index_menu_x')
 }
 // console.log(read_from("main_navbar","innerHTML"))
