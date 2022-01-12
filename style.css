@@ -121,6 +121,14 @@ button {
     color: var(--invert_background);
     border: 2px solid var(--invert_background);
 }
+#switch_themes{
+    border: 1px solid red;
+    height: 40px;
+    width: 100px;
+    border-radius:50px;
+    border: 1px solid var(--invert_background);
+    box-shadow: 0 0 10px var(--invert_background);
+}
 
 .index_menu, .index_menu_halo {
     /* height: 700px; */

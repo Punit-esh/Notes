@@ -1,3 +1,6 @@
+const CONVERTORS = ()=>{
+    return ["Color"]
+}
 const HTML = ()=>{
     return ["Intorduction","Editos","Elements","Attributes","Comments","Styles","Colors","Responsive","Centered","Basic Example","Heading","Paragraphs","Links","Line Break","Horizontal Rule"]
 }

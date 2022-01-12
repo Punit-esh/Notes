@@ -49,14 +49,7 @@ function switch_themes(current) {
 }
 function menu_toggel(current) {
     document.getElementById('menu').classList.toggle('menu_x')
-    // current.classList.toggle('menu_x')
     document.getElementById('index_menu_halo').classList.toggle('index_menu_halo_x')
-    // document.getElementById('main_body').style.background = (current.classList[current.classList.length-1]=='menu_x')?'#000':''
     document.getElementsByClassName('index_menu')[0].classList.toggle('index_menu_x')
 }
-// console.log(read_from("main_navbar","innerHTML"))
-// console.log(document.getElementById("main_navbar").innerHTML)
-// function change_iframe(link) {
-//     document.getElementById('link_op').src = `./modules/${link}`;
-//     // menu_toggel()
-// }
+
