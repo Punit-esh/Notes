@@ -43,13 +43,18 @@ function make_index(id) {
 function index_menu_back() {
     write_to("index_menu", document.getElementsByClassName('main_navbar')[0].innerHTML)
 }
-function switch_themes(current) {
-    write_to('theme_switcher', (current.innerHTML == "Light") ? 'Dark' : 'Light')
-    write_to('style', (current.innerHTML == "Light") ? dark_theme : light_theme)
-}
+// function switch_themes(current) {
+//     write_to('theme_switcher', (current.innerHTML == "Light") ? 'Dark' : 'Light')
+// }
 function menu_toggel(current) {
     document.getElementById('menu').classList.toggle('menu_x')
     document.getElementById('index_menu_halo').classList.toggle('index_menu_halo_x')
     document.getElementsByClassName('index_menu')[0].classList.toggle('index_menu_x')
 }
 
+function switch_themes(current) {
+    current.classList.toggle('active')
+    // console.log(current.getAttribute('class').split(" "));
+    // console.log();
+    write_to('style', (current.getAttribute('class').split(" ").indexOf('active')==1) ? dark_theme : light_theme)
+}
