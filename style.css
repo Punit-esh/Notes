@@ -373,7 +373,11 @@ button {
     }
 }
 
-
 .main {
-    color: var(--invert_background)
+    color: var(--invert_background);
+    padding:20px
 }
+
+/* html */
+
+/* html_introduction */
